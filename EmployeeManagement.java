@@ -87,13 +87,31 @@ class EmployeeManagement{
         }
         showMenu();
     }
-    static void deleteRecord(){}
+    static void deleteIndex(int i){
+        for(int j=i;j<num-1;j++){
+            emp[j]=emp[j+1];
+        }
+        emp[num-1]=null;
+    }
+    static void deleteRecord(){
+        System.out.println("Enter Employee id to delete the record:");
+        long search=sc.nextLong();
+
+        for(int i=0;i<num;i++){
+            if(emp[i].getId()==search){
+                deleteIndex(i);
+                num--;
+                break;
+            }
+        }
+        showMenu();
+    }
     static void searchRecord(){
         System.out.println("Enter Employee id to search the record:");
         long search=sc.nextLong();
 
         for(int i=0;i<num;i++){
-            if(emp[i].id==search){
+            if(emp[i].getId()==search){
                 System.out.println("Name: " + emp[i].getName());
                 System.out.println("Employee ID: " + emp[i].getId());
                 System.out.println("Designation: " + emp[i].getDesignation());
