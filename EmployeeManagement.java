@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class EmployeeManagement{
+class EmployeeManagement{
     static class Employee{
         private String name;
         private long id;
@@ -36,7 +36,31 @@ public class EmployeeManagement{
 
     static Employee emp[]=new Employee[max];
     static Scanner sc=new Scanner(System.in);
-    static void build(){}
+    static void build(){
+        System.out.println("Build The Table:");
+        System.out.println("Maximum Entries can be " + max);
+        System.out.println("Enter the no. of entries required");
+        num=sc.nextInt();
+        
+        if(num>20){
+            System.out.println("Maximum no. of entries are 20");
+            num=20;
+        }
+        System.out.println("Enter the following data:");
+        for(int i=0;i<num;i++){
+            System.out.print("Name:");
+            emp[i].name=sc.next();
+            System.out.print("Employee Id:");
+            emp[i].id=sc.nextLong();
+            System.out.print("Designation:");
+            emp[i].designation=sc.next();
+            System.out.print("Experience:");
+            emp[i].exp=sc.nextInt();
+            System.out.print("Age:");
+            emp[i].age=sc.nextInt();
+        }
+        showMenu();
+    }
     static void insert(){}
     static void deleteRecord(){}
     static void searchRecord(){}
