@@ -36,32 +36,57 @@ class EmployeeManagement{
 
     static Employee emp[]=new Employee[max];
     static Scanner sc=new Scanner(System.in);
-    static void build(){
-        System.out.println("Build The Table:");
+
+    static void build() {
+        System.out.println("Build The Table\n");
         System.out.println("Maximum Entries can be " + max);
-        System.out.println("Enter the no. of entries required");
-        num=sc.nextInt();
+        System.out.println("Enter the number of Entries required:");
+        num = sc.nextInt();
         
-        if(num>20){
-            System.out.println("Maximum no. of entries are 20");
-            num=20;
+        if (num > max) {
+            System.out.println("Maximum number of Entries are " + max);
+            num = max;
         }
+        
         System.out.println("Enter the following data:");
-        for(int i=0;i<num;i++){
-            System.out.print("Name:");
-            emp[i].name=sc.next();
-            System.out.print("Employee Id:");
-            emp[i].id=sc.nextLong();
-            System.out.print("Designation:");
-            emp[i].designation=sc.next();
-            System.out.print("Experience:");
-            emp[i].exp=sc.nextInt();
-            System.out.print("Age:");
-            emp[i].age=sc.nextInt();
+        for (int i = 0; i < num; i++) {
+            System.out.println("\nEnter details for Employee " + (i + 1) + ":");
+            System.out.print("Name: ");
+            String name = sc.next();
+            System.out.print("Employee ID: ");
+            long id = sc.nextLong();
+            System.out.print("Designation: ");
+            String designation = sc.next();
+            System.out.print("Experience: ");
+            int exp = sc.nextInt();
+            System.out.print("Age: ");
+            int age = sc.nextInt();
+            emp[i] = new Employee(name, id, designation, age, exp);
         }
         showMenu();
     }
-    static void insert(){}
+
+    static void insert(){
+        if(num<max){
+            System.out.println("Enter the following information of the Employee:");
+
+            System.out.println("Name:");
+            String name=sc.next();
+            System.out.print("Employee Id:");
+            long id=sc.nextLong();
+            System.out.print("Designation:");
+            String designation=sc.next();
+            System.out.print("Experience:");
+            int exp=sc.nextInt();
+            System.out.print("Age:");
+            int age=sc.nextInt();
+            emp[num]=new Employee(name,id,designation,age,exp);
+        }
+        else{
+            System.out.println("Employee Table is Full");
+        }
+        showMenu();
+    }
     static void deleteRecord(){}
     static void searchRecord(){}
     static void showMenu(){
